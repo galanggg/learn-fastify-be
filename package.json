@@ -13,8 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
     "fastify": "^4.15.0",
-    "nodemon": "^2.0.22"
+    "fastify-plugin": "^4.5.0",
+    "nodemon": "^2.0.22",
+    "pg-promise": "^11.4.3"
   },
   "devDependencies": {
     "eslint": "^8.37.0",
