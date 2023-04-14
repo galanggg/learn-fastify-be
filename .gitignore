@@ -2,3 +2,4 @@ node_modules
 coverages
 .idea
 .batect
+.env
