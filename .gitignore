@@ -3,3 +3,5 @@ coverages
 .idea
 .batect
 .env
+postgres-data
+coverage
