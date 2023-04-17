@@ -1,6 +1,9 @@
 const route = async (fastify) => {
   //GET Route
-  fastify.get('/', async (request, reply) => {})
+  fastify.get('/', async (request, reply) => {
+    const allTest = await fastify.db.query('SELECT * FROM test')
+    reply.code(200).send(allTest)
+  })
 
   //POST Route
   fastify.post('/', async (request, reply) => {
