@@ -15,12 +15,13 @@ exports.setup = function (options, seedLink) {
 }
 
 exports.up = function (db) {
+  db.runSql('CREATE EXTENSION IF NOT EXISTS "pgcrypto";')
   return db.createTable('test', {
     id: {
       type: 'uuid',
       primaryKey: true,
       notNull: true,
-      autoIncrement: true,
+      defaultValue: new String('gen_random_uuid()'),
     },
 
     title: {
