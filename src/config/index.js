@@ -7,5 +7,5 @@ const loadEnvirontmentVariable = (envName) => {
 }
 
 module.exports = {
-  databaseUri: loadEnvirontmentVariable('POSTGRES_URI'),
+  database_uri: loadEnvirontmentVariable('POSTGRES_URI'),
 }
