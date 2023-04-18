@@ -23,7 +23,7 @@ describe('temp route', () => {
     expect(res.json().id).toBeDefined()
   })
 
-  it('shoould return 200 for GET route', async () => {
+  it('should return 200 for GET route', async () => {
     const res = await app.inject({
       method: 'GET',
       url: '/api/v1/test/',

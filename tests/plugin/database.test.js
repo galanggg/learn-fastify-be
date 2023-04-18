@@ -1,5 +1,5 @@
 const Fastify = require('fastify')
-const dbPlugin = require('../plugin/database')
+const dbPlugin = require('../../src/plugin/database')
 const applyMigration = require('../../src/plugin/helper/migration')
 
 jest.mock('../../src/plugin/helper/migration')
@@ -9,7 +9,7 @@ describe('database plugin', () => {
     applyMigration.mockImplementation(() => jest.fn())
   })
 
-  it('should able to attach db decorate on fastify', () => {
+  it('should able to attach db decorate on fastify', async () => {
     const fastify = Fastify()
     fastify.register(dbPlugin)
 
