@@ -1,7 +1,10 @@
+const tempService = require('../../service/temp.service')
+
 const route = async (fastify) => {
+  const { getAll, save } = tempService(fastify)
   //GET Route
   fastify.get('/', async (request, reply) => {
-    const allTest = await fastify.db.query('SELECT * FROM test')
+    const allTest = await getAll()
     reply.code(200).send(allTest)
   })
 
@@ -9,10 +12,7 @@ const route = async (fastify) => {
   fastify.post('/', async (request, reply) => {
     fastify.log.info(`Request with body (${request})`)
     const { title } = request.body
-    const id = await fastify.db.one(
-      'INSERT INTO test(title) VALUES($1) RETURNING id ',
-      [title],
-    )
+    const id = await save(title)
 
     reply.code(201).send(id)
   })
