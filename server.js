@@ -1,5 +1,5 @@
+require('dotenv').config()
 const pino = require('pino')
-
 const PORT = process.env.PORT || 5001
 const transport = pino.transport({
   target: 'pino-pretty',
