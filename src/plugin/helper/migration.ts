@@ -1,3 +1,5 @@
+import { FastifyError } from 'fastify'
+
 const DBMigrate = require('db-migrate')
 
 const applyMigration = () => {
@@ -5,7 +7,7 @@ const applyMigration = () => {
     const dbMigrate = DBMigrate.getInstance(true)
     dbMigrate.silence(true)
 
-    dbMigrate.up((error, result = []) => {
+    dbMigrate.up((error: FastifyError, result = []) => {
       if (error) {
         reject(error)
       }

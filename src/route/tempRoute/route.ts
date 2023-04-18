@@ -1,6 +1,8 @@
+import { FastifyInstance } from 'fastify'
+
 const tempService = require('../../service/temp.service')
 
-const route = async (fastify) => {
+const route = async (fastify: FastifyInstance) => {
   const { getAll, save } = tempService(fastify)
   //GET Route
   fastify.get('/', async (request, reply) => {
@@ -9,7 +11,7 @@ const route = async (fastify) => {
   })
 
   //POST Route
-  fastify.post('/', async (request, reply) => {
+  fastify.post('/', async (request: any, reply) => {
     fastify.log.info(`Request with body (${request})`)
     const { title } = request.body
     const id = await save(title)

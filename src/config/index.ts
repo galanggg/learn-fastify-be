@@ -1,4 +1,4 @@
-const loadEnvirontmentVariable = (envName) => {
+const loadEnvirontmentVariable = (envName: any) => {
   if (process.env[envName]) {
     return process.env[envName]
   }

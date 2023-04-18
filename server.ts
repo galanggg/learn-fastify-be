@@ -1,5 +1,6 @@
 require('dotenv').config()
-const pino = require('pino')
+import pino from 'pino'
+import app from './src/app'
 const PORT = process.env.PORT || 5001
 const transport = pino.transport({
   target: 'pino-pretty',
@@ -7,7 +8,7 @@ const transport = pino.transport({
 })
 const logger = pino({ level: 'info' }, transport)
 
-const server = require('./src/app')({
+const server = app({
   logger: { logger },
 })
 
