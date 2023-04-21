@@ -1,8 +1,7 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
-
-const fastify = require('fastify')
-const db = require('./plugin/database')
-const testRoute = require('./route/tempRoute/route')
+import fastify from 'fastify'
+import db from './plugin/database'
+import route from './route/tempRoute/route'
 const app = (opts = {}) => {
   const app = fastify(opts)
 
@@ -10,7 +9,7 @@ const app = (opts = {}) => {
   app.register(db)
 
   //register route
-  app.register(testRoute, { prefix: 'api/v1/test' })
+  app.register(route, { prefix: 'api/v1/test' })
   app.get('/', (request: FastifyRequest, reply: FastifyReply) => {
     reply.send({ hello: 'world!' })
   })

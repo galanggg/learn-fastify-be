@@ -16,4 +16,4 @@ const applyMigration = () => {
   })
 }
 
-module.exports = applyMigration
+export default applyMigration

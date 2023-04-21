@@ -12,4 +12,4 @@ const dao = (fastify: FastifyPluginOptions) => {
   return { getAll, save }
 }
 
-module.exports = dao
+export default dao

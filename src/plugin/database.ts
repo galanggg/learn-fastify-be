@@ -1,9 +1,8 @@
-import { FastifyInstance } from 'fastify'
-
-const fp = require('fastify-plugin')
 const pgp = require('pg-promise')()
-const applyMigration = require('./helper/migration')
-const config = require('../config/index')
+import { FastifyInstance } from 'fastify'
+import fp from 'fastify-plugin'
+import applyMigration from './helper/migration'
+import config from '../config/index'
 const db = async (fastify: FastifyInstance, options: any, next: any) => {
   const dbConnection = pgp(config.database_uri)
 
@@ -16,4 +15,4 @@ const db = async (fastify: FastifyInstance, options: any, next: any) => {
   next()
 }
 
-module.exports = fp(db)
+export default fp(db)

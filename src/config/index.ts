@@ -6,6 +6,6 @@ const loadEnvirontmentVariable = (envName: any) => {
   throw new Error(`${envName}does not exist`)
 }
 
-module.exports = {
+export default {
   database_uri: loadEnvirontmentVariable('POSTGRES_URI'),
 }

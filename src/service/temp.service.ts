@@ -1,16 +1,15 @@
 import { FastifyInstance } from 'fastify'
-
-const tempDao = require('../dao/temp.dao')
+import dao from '../dao/temp.dao'
 
 const tempService = (fastify: FastifyInstance) => {
-  const dao = tempDao(fastify)
+  const tempDao = dao(fastify)
   const getAll = () => {
-    return dao.getAll()
+    return tempDao.getAll()
   }
   const save = (title: string) => {
-    return dao.save(title)
+    return tempDao.save(title)
   }
   return { getAll, save }
 }
 
-module.exports = tempService
+export default tempService
