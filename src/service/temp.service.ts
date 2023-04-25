@@ -3,12 +3,8 @@ import dao from '../dao/temp.dao'
 
 const tempService = (fastify: FastifyInstance) => {
   const tempDao = dao(fastify)
-  const getAll = () => {
-    return tempDao.getAll()
-  }
-  const save = (title: string) => {
-    return tempDao.save(title)
-  }
+  const getAll = () => tempDao.getAll()
+  const save = (title: string) => tempDao.save(title)
   return { getAll, save }
 }
 

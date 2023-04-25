@@ -1,9 +1,9 @@
 import { FastifyError } from 'fastify'
-
+/* eslint-disable @typescript-eslint/no-var-requires */
 const DBMigrate = require('db-migrate')
 
-const applyMigration = () => {
-  return new Promise((resolve, reject) => {
+const applyMigration = () =>
+  new Promise((resolve, reject) => {
     const dbMigrate = DBMigrate.getInstance(true)
     dbMigrate.silence(true)
 
@@ -14,6 +14,5 @@ const applyMigration = () => {
       resolve(result.length)
     })
   })
-}
 
 export default applyMigration

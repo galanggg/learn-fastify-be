@@ -1,8 +1,11 @@
-const pgp = require('pg-promise')()
 import { FastifyInstance } from 'fastify'
 import fp from 'fastify-plugin'
 import applyMigration from './helper/migration'
 import config from '../config/index'
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const pgp = require('pg-promise')()
+
 const db = async (fastify: FastifyInstance, options: any, next: any) => {
   const dbConnection = pgp(config.database_uri)
 

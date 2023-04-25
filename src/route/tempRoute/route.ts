@@ -2,9 +2,10 @@ import { FastifyInstance } from 'fastify'
 import { FromSchema } from 'json-schema-to-ts'
 import { post, postResponse, getResponse } from './temp.schema'
 import tempService from '../../service/temp.service'
+
 const route = async (fastify: FastifyInstance) => {
   const { getAll, save } = tempService(fastify)
-  //GET Route
+  // GET Route
   fastify.get(
     '/',
     {
@@ -18,7 +19,7 @@ const route = async (fastify: FastifyInstance) => {
     },
   )
 
-  //POST Route
+  // POST Route
   fastify.post<{ Body: FromSchema<typeof post> }>(
     '/',
     {
@@ -29,7 +30,6 @@ const route = async (fastify: FastifyInstance) => {
     },
     async (request: any, reply): Promise<void> => {
       fastify.log.info(`Request with body (${request})`)
-      console.log(request.body)
       const { title } = request.body
       const id = await save(title)
 
