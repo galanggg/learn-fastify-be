@@ -1,6 +1,7 @@
-const Fastify = require('fastify')
-const dbPlugin = require('../../src/plugin/database')
-const applyMigration = require('../../src/plugin/helper/migration')
+import Fastify from 'fastify'
+import dbPlugin from '../../src/plugin/database'
+
+import applyMigration from '../../src/plugin/helper/migration'
 
 jest.mock('../../src/plugin/helper/migration')
 

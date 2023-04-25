@@ -1,17 +1,16 @@
-const build = require('../../src/app')
-
-let app
+import app from '../../src/app'
+let apps
 describe('Root route', () => {
   beforeEach(() => {
-    app = build()
+    apps = app()
   })
 
   afterEach(() => {
-    app.close()
+    apps.close()
   })
 
   it('should return 200 when root route called', async () => {
-    const res = await app.inject({
+    const res = await apps.inject({
       url: '/',
     })
 
