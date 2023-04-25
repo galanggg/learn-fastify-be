@@ -1,6 +1,7 @@
-require('dotenv').config()
 import pino from 'pino'
 import app from './src/app'
+/* eslint-disable @typescript-eslint/no-var-requires */
+require('dotenv').config()
 
 const PORT: number | any = process.env.PORT || 5001
 const transport = pino.transport({
