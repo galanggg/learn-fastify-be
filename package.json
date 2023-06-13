@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start-prod": "node server.js",
+    "start-prod": "node build/server.js",
     "dev": "nodemon",
     "start": "nodemon build/server.js",
     "lint": "eslint . --ext .ts",
