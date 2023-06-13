@@ -4,6 +4,9 @@ WORKDIR "/src"
 
 COPY ./package.json ./
 
+COPY .env ./.env
+
+
 RUN npm install
 
 COPY . .
